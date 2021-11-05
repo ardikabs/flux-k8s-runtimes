@@ -9,3 +9,9 @@ This is sample repository to manage multiple Kubernetes cluster with GitOps appr
 * Secret management using [SOPS](https://github.com/mozilla/sops). Example could be seen [here](./s-cluster-01/global/ssh-credentials).
 * [Automate container image update](https://fluxcd.io/docs/guides/image-update/#configure-image-updates).
 * [Rollback mechanism](https://fluxcd.io/docs/guides/image-update/#configure-image-updates).
+
+# Future works
+Implement Flagger for progressive delivery such as:
+1. Rollout with Blue/Green Deployment
+2. Traffic Management with Canary Deployment
+3. Involve Service Mesh with Linkerd2
