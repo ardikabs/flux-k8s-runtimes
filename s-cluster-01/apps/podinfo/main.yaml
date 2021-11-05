@@ -33,7 +33,7 @@ spec:
         name: fluxcdbot
       messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
     push:
-      branch: auto
+      branch: master
   update:
     path: ./staging
     strategy: Setters
