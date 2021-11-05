@@ -1,0 +1,19 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: infrastructure
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  dependsOn:
+    - name: global
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./p-cluster-01/infrastructure
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-gpg
+  prune: true
+  validation: client

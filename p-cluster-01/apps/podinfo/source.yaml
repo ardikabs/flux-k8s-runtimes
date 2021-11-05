@@ -1,0 +1,27 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: podinfo
+  namespace: podinfo
+spec:
+  interval: 1m
+  ref:
+    branch: master
+  secretRef:
+    name: ssh-credentials
+  url: ssh://git@github.com/ardikabs/flux-podinfo-manifesto.git
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: podinfo
+  namespace: podinfo
+spec:
+  interval: 10m0s
+  sourceRef:
+    kind: GitRepository
+    name: podinfo
+    namespace: podinfo
+  path: ./production
+  prune: true
+  validation: client
