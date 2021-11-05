@@ -16,14 +16,13 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
-  name: flux-system
+  name: podinfo
   namespace: flux-system
 spec:
   interval: 1m0s
   sourceRef:
     kind: GitRepository
     name: podinfo
-    namespace: flux-system
   git:
     checkout:
       ref:
